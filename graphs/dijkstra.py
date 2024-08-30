@@ -13,12 +13,13 @@
 
 
 from heapq import heappop, heappush
+from typing import Mapping
 
+from graph import Graph
 
-class Graph:
-    def __init__(self, graph) -> None:
-        self.graph = graph
-        self.size = len(graph)
+class Dijsktra(Graph):
+    def __init__(self, graph: Mapping[str, Mapping[str, float]]) -> None:
+        super().__init__(graph)
 
     def dijkstra(self, source):
         # Init single source
@@ -51,7 +52,7 @@ class Graph:
 # Inner dict: edge
 # [[(,)]]
 
-sol = Graph(
+sol = Dijsktra(
     {
         "a": {"b": 4, "h": 8},
         "b": {"a": 4, "h": 11, "c": 8},
