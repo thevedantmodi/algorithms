@@ -41,6 +41,7 @@ class Bellman_Ford(Graph):
 
         return distances
 
+
 sol = Bellman_Ford(
     {
         "a": {"b": 4, "h": 8},
@@ -56,3 +57,17 @@ sol = Bellman_Ford(
 )
 
 sol.bellman_ford("a")
+
+sol1 = Bellman_Ford(
+    {
+        "0": {"1": 6, "3": 7},
+        "1": {"2": 5, "3": 8, "4": -4},
+        "2": {"1": -2},
+        "3": {"2": -3, "4": 9},
+        "4": {"0": 2, "2": 7},
+    }
+)
+
+ans1 = sol1.bellman_ford("0")
+
+print(ans1)
